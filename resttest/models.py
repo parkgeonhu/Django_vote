@@ -40,6 +40,9 @@ class Event(models.Model):
     participants = models.ManyToManyField(User)
     
     published_date = models.DateTimeField('date published', null=True)
+    
+    def __str__(self):
+        return str(self.pk)
 
     def publish(self):
         self.published_date = timezone.now()
